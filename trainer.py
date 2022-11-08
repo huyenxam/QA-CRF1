@@ -160,7 +160,9 @@ class Trainer(object):
             self.best_score = f1
 
     def save_model(self):
-        checkpoint = {'model': self.model,
+        checkpoint = {
+                      'epoch': self.args.num_epochs,  
+                      'model': self.model,
                       'state_dict': self.model.state_dict(),
                       }
         path = os.path.join(self.save_folder, 'checkpoint.pth')
